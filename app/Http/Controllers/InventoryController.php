@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Inventory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class InventoryController extends Controller
@@ -39,6 +40,12 @@ class InventoryController extends Controller
 
       if (!$parts->isEmpty()) {
         foreach ($parts as $part) {
+      
+         $edit = Auth::user() ?
+            "<div class=\"part__edit\">
+              <a href=" . url("/parts/$part->id/edit/#part") ." class=\"btn btn-warning\">EDIT</a>
+            </div>" : "";
+          
           // BIG PILE O SPAGHETTI
           $response .= "
             <div class='row p-3 mb-3 shadow mx-auto border-start border-secondary border-3 rounded rounded-3'
@@ -47,8 +54,8 @@ class InventoryController extends Controller
               <img src='" . asset($part->img_path) . "' class='img-fluid img-thumbnail bg-secondary part__thumbnail' alt=''>
             </div>
             <div class='col-md position-relative'>
+              $edit
               <div class='position-absolute text-end' style='top:0; right: 0;'>
-                <!-- <i class='fas fa-barcode fa-2x text-gray-300'></i> -->
                 <img src='images/logo/color1-white_textlogo_transparent_background.png' class='img-fluid w-25' alt=''>
               </div>
               <div class='row mt-4 border-start border-3 border-secondary'>

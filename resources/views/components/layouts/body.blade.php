@@ -116,7 +116,7 @@
               </div>
               </p>
               <p class="lead">
-                We are the boom specialists with over <span id='boom-teardowns'>50+</span> teardowns, we are your go to for 10 year boom inspections.
+                We are the boom specialists with over <span id='boom-teardowns'></span> teardowns, we are your go to for 10 year boom inspections.
               </p>
               <div class="text-start mt-4 pe-4">
                 <a href="{{ route('services') }}#crane" class="btn btn-info">Learn More</a>
