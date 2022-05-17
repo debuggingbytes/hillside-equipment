@@ -1,0 +1,354 @@
+// Variables
+$color-black: #000;
+$color-white: #fff;
+
+$color-primary: rgb(22, 230, 22);
+$color-primary-dark: rgb(17, 184, 17);
+
+//responsive
+$screen-heading-sm: 1.7rem;
+$screen-p-sm: 1rem;
+
+$screen-heading-md: 1.7rem;
+$screen-p-md: 1rem;
+
+//mixins
+@mixin shadow {
+    text-shadow: 2px 5px 3px $color-black;
+}
+
+@mixin serviceImg($img) {
+    background-image: linear-gradient(
+            to bottom right,
+            rgba(192, 192, 192, 0.7),
+            rgba(0, 0, 0, 0.4)
+        ),
+        linear-gradient(
+            to right bottom,
+            rgba($color-white, 0.45) 0%,
+            rgba($color-white, 0.45) 45%,
+            transparent 45%
+        ),
+        url($img);
+    background-position: center;
+    background-size: cover;
+}
+
+.heading {
+    text-align: center;
+    font-family: "Roboto";
+    transition: all 0.3s;
+
+    &__text {
+        display: inline-block;
+        font-size: 4rem;
+        font-weight: 600;
+        background-image: linear-gradient(
+            to bottom,
+            $color-primary,
+            $color-primary-dark
+        );
+        text-transform: uppercase;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        &:hover {
+            transform: skewX(-15deg) rotateY(10deg);
+        }
+        z-index: 2;
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
+    }
+    & ul {
+        padding: 3px;
+        margin-top: 0.5rem;
+        & li {
+            list-style: none;
+            display: inline-block;
+            text-transform: uppercase;
+            font-weight: 600;
+            border-bottom: 2px solid $color-primary;
+            &:not(:last-child) {
+                margin-right: 1rem;
+            }
+        }
+    }
+    & p {
+        display: block;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    &__large {
+        text-align: center;
+        color: $color-white;
+        border-bottom: 2px solid rgba($color-primary, 0.8);
+    }
+}
+
+// Styles
+.service-card {
+    margin-top: 2.5rem;
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+    position: relative;
+    height: 15rem;
+    // margin-bottom: 1rem;
+    font-family: "Roboto";
+
+    &:last-child {
+        margin-bottom: 2.5rem;
+    }
+
+    &__side {
+        // display: block;
+        height: 15rem;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: all 1s ease;
+        width: 90%;
+        backface-visibility: hidden;
+        border-radius: 0.5rem;
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.4);
+        overflow: hidden;
+
+        &--front {
+            transition: all 1s ease-in-out;
+            display: block;
+            &--boom {
+                @include serviceImg(
+                    "../images/services/10-year-boom-ltm-1100.jpg"
+                );
+            }
+            &--block {
+                @include serviceImg(
+                    "../images/services/5-year-block-and-ball-web.jpg"
+                );
+            }
+            &--lmi {
+                @include serviceImg("../images/services/broderson-lmi.jpg");
+            }
+            &--welding {
+                @include serviceImg("../images/services/field-welding-web.jpg");
+            }
+            &--onsite {
+                @include serviceImg("../images/services/onsite-service.jpg");
+            }
+            &--inspection {
+              @include serviceImg("../images/services/inspections.jpg");
+            }
+            &--component {
+              @include serviceImg("../images/services/component.jpg");
+            //  background-position: center;
+             background-size: 100%;
+
+            }
+            &--hydraulic {
+              @include serviceImg("../images/services/hydraulic.jpg");
+
+            }
+        }
+
+        &--text {
+            padding: 5px 25px;
+
+            & p {
+                padding-top: 1.5rem;
+                color: $color-white;
+                font-size: 1.5rem;
+                line-height: 1.9rem;
+                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+            }
+
+            &--heading {
+                display: inline-block;
+                font-size: 3rem;
+                font-weight: 600;
+                color: $color-white;
+                @include shadow();
+                letter-spacing: 4px;
+                text-transform: uppercase;
+                padding-bottom: 0.7rem;
+                border-bottom: 2px solid $color-primary;
+            }
+        }
+
+        &--back {
+            transform: rotateX(180deg) translateX(-50%);
+
+            &--boom {
+                background-image: linear-gradient(
+                    to bottom right,
+                    $color-primary,
+                    $color-primary-dark
+                );
+            } // #1
+        } // back
+    }
+    &:hover &__side {
+      // width: 97%;
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.6);
+      &--front--boom {
+          background-image: linear-gradient(
+                  to bottom right,
+                  rgba(51, 51, 51, 0.7),
+                  rgba(0, 0, 0, 0.7)
+              ),
+              url(../images/services/10-year-boom-ltm-1100-web.jpg);
+      }
+      &--front--block {
+          background-image: linear-gradient(
+                  to bottom right,
+                  rgba(51, 51, 51, 0.7),
+                  rgba(0, 0, 0, 0.7)
+              ),
+              url(../images/services/tadano-ball-post-web.jpg);
+      }
+      &--front--lmi {
+          background-image: linear-gradient(
+                  to bottom right,
+                  rgba(51, 51, 51, 0.7),
+                  rgba(0, 0, 0, 0.7)
+              ),
+              url(../images/services/broderson-lmi.jpg);
+      }
+      &--front--welding {
+          background-image: linear-gradient(
+                  to bottom right,
+                  rgba(51, 51, 51, 0.7),
+                  rgba(0, 0, 0, 0.7)
+              ),
+              url(../images/services/field-welding-web.jpg);
+      }
+      &--front--onsite {
+          background-image: linear-gradient(
+                  to bottom right,
+                  rgba(51, 51, 51, 0.7),
+                  rgba(0, 0, 0, 0.7)
+              ),
+              url(../images/services/onsite-service.jpg);
+      }
+      &--front--inspection {
+        background-image: linear-gradient(
+                to bottom right,
+                rgba(51, 51, 51, 0.7),
+                rgba(0, 0, 0, 0.7)
+            ),
+            url(../images/services/inspections.jpg);
+      }
+      &--front--component {
+        background-image: linear-gradient(
+                to bottom right,
+                rgba(51, 51, 51, 0.7),
+                rgba(0, 0, 0, 0.7)
+            ),
+            url(../images/services/component-rebuild.jpg);
+        background-position: center center;
+      }
+      &--front--hydraulic {
+        background-image: linear-gradient(
+                to bottom right,
+                rgba(51, 51, 51, 0.7),
+                rgba(0, 0, 0, 0.7)
+            ),
+            url(../images/services/hydraulic.jpg);
+        background-position: center center;
+      }
+    }
+
+    &__heading {
+        width: 100%;
+        position: absolute;
+        text-align: center;
+        z-index: 2000;
+        // transform: translate(-50%, -50%);
+
+        &--text {
+            font-size: 4.5rem;
+            color: $color-white;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-family: "Roboto";
+            @include shadow();
+        }
+    }
+    &__text {
+        width: 90%;
+        position: absolute;
+        z-index: 2000;
+        top: 35%;
+        left: 5%;
+
+        &--list {
+            list-style: none;
+            display: block;
+            font-size: 2.5rem;
+            color: $color-white;
+            @include shadow();
+        }
+    }
+
+    &__img {
+        height: 100%;
+        width: 100%;
+        background-image: linear-gradient(
+            to bottom,
+            rgba($color-primary, 0.4),
+            rgba($color-primary-dark, 0.4)
+        );
+        &--1 {
+            transform: translateY(-40%);
+            opacity: 0.3;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .service-card {
+        &__side {
+            &--text {
+                &--heading {
+                    font-size: $screen-heading-sm;
+                    letter-spacing: normal;
+                }
+
+                & p {
+                    padding-top: 0.8rem;
+                    font-size: $screen-p-sm;
+                }
+            }
+        }
+    }
+    .heading {
+        &__text,
+        &__large {
+            font-size: $screen-heading-sm;
+        }
+    }
+}
+@media only screen and (max-width: 998px) {
+    .service-card {
+        &__side {
+            &--text {
+                &--heading {
+                    font-size: $screen-heading-md;
+                    letter-spacing: normal;
+                }
+
+                & p {
+                    padding-top: 0.8rem;
+                    font-size: $screen-p-md;
+                }
+            }
+        }
+    }
+    .heading {
+        &__text,
+        &__large {
+            font-size: $screen-heading-md;
+        }
+    }
+}
