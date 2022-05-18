@@ -8,11 +8,19 @@
 </x-layouts.header>
 <x-layouts.blank-body>
   @section('content')
-
   <main>
     <section>
       <div class="container">
-        <div class="row my-5 card py-3">
+        <div class="row mt-3">
+          <div class="col-md">
+            [ 
+              <a href="{{ route('dashboard') }}" class="text-secondary text-decoration-none">Dashboard</a> >
+              <a href="{{ route('parts.list') }}" class="text-secondary text-decoration-none">Parts</a> > 
+              <a href="{{ route('parts.create') }}" class="text-secondary text-decoration-none">Create</a> > 
+            ]
+          </div>
+        </div>
+        <div class="row mt-3 card py-3">
           <div class="col-md">
             @if (count($errors) > 0)
             <div class="alert alert-danger col-md-7 mt-3 mx-auto">

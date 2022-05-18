@@ -7,9 +7,9 @@
   </section>
   <!-- end green spacer -->
   <!-- Services -->
-  <section class="vh-50">
-    <div class="container-xxl">
-      <div class="row py-3 card">
+  <section >
+    <div class="container-xxl ">
+      <div class="row py-3 card mx-1 mx-md-0">
         <div class="col-md-11 mx-auto">
           <h3 class="text-center my-3 fst-italic">Hillside Equipment is proud to offer professional & effiecient
             heavy
@@ -180,22 +180,30 @@
           <p class="lead fw-bold">Some notable clients that our crane technicians have provided services for.</p>
         </div>
         
-        <div class="row mt-5 pb-5">
-          <div class="col-md d-flex justify-content-center align-items-center">
+        <div class="row mt-5 pb-5 container">
+          <div class="col-md my-2 my-md-0 mx-2 p-0 p-md-1">
             <div class="card h-100 d-flex justify-content-center align-items-center p-2 mx-auto bg-green-gradient shadow">
-              <img src="images/clients/esso-logo.png" style="max-width: 200px;" class="img-fluid" alt="">
+              <img src="images/clients/esso-logo.png"  class="img-fluid" alt="">
             </div>
+          </div>
+          <div class="col-md my-2 my-md-0 mx-2 p-0 p-md-1">          
             <div class="card h-100 d-flex justify-content-center align-items-center p-2 mx-auto bg-green-gradient shadow">
-              <img src="images/clients/nait.png" style="max-width: 200px;" class="img-fluid" alt="">
+              <img src="images/clients/nait.png"  class="img-fluid" alt="">
             </div>
+          </div>
+          <div class="col-md my-2 my-md-0 mx-2 p-0 p-md-1">
             <div class="card h-100 d-flex justify-content-center align-items-center p-2 mx-auto bg-green-gradient shadow">
-              <img src="images/clients/pcl-logo.png" style="max-width: 200px;" class="img-fluid" alt="">
+              <img src="images/clients/pcl-logo.png"  class="img-fluid" alt="">
             </div>
+          </div>
+          <div class="col-md my-2 my-md-0 mx-2 p-0 p-md-1">  
             <div class="card h-100 d-flex justify-content-center align-items-center p-2 mx-auto bg-green-gradient shadow">
-              <img src="images/clients/cahill.png" style="max-width: 200px;" class="img-fluid" alt="">
+              <img src="images/clients/cahill.png"  class="img-fluid" alt="">
             </div>
+          </div>
+          <div class="col-md my-2 my-md-0 mx-2 p-0 p-md-1">  
             <div class="card h-100 d-flex justify-content-center align-items-center p-2 mx-auto bg-green-gradient shadow">
-              <img src="images/clients/west-fraser.png" style="max-width: 200px;" class="img-fluid" alt="">
+              <img src="images/clients/west-fraser.png"  class="img-fluid" alt="">
             </div>
           </div>
         </div>

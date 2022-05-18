@@ -53,7 +53,6 @@
             <p><i class="fas fa-home me-2"></i> 1805 8th St, Nisku, AB</p>
             <p><i class="fas fa-envelope me-2"></i> info[at]hillsideequipment.com</p>
             <p><i class="fas fa-phone me-2"></i> +1 780 916 3103</p>
-            <h6 class="text-uppercase fw-bold">Hours</h6>
             <p><i class="fas fa-clock me-2"></i> Mon-Fri: 8am - 5pm</p>
           </div>
           <!-- Grid column -->
@@ -75,8 +74,8 @@
   <!-- Footer -->
 </div>
 <!-- Copyright -->
-<div class="text-center p-3 bg-gray bg-gradient text-white">
-  © <span id="year"></span> Hillside Equipment<br>
+<div class="text-center p-3 bg-gray bg-gradient text-white fs-6 copyright__footer">
+  © <span id="year"></span> Hillside Equipment, All rights reserved<br>
   Content and Material cannot be reused without written consent
   from website owner.<br>
   <span class="developed">Website developed &amp; maintained by: <a class="text-white d-block" href="https://debuggingbytes.com"

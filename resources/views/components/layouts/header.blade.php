@@ -82,6 +82,7 @@
         </div>
       </nav>
       <!-- Begin Emergency Service -->
+      @if (!Auth::user())
       <div class="position-relative">
         <div class="emergency pt-2 p-1">
           <a href="tel:7809163103" class="text-decoration-none">
@@ -94,6 +95,7 @@
           </a>
         </div>
       </div>
+      @endif
       <!-- Begin Hero & Call to Action -->
       <div class="hero" @yield('hero-style')>
       @yield('hero-content')

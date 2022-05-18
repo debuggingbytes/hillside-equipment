@@ -436,6 +436,18 @@ mark {
   transition: all .4s;
 }
 
+@media (max-width: 770px) {
+  .copyright__footer {
+    padding-bottom: 7rem !important;
+  }
+}
+.abs-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 
 .hr-line {
   display: inline-block;
@@ -443,4 +455,7 @@ mark {
   width: 20%;
   min-height: 5px;
   background-color: rgb(22, 230, 22);
+}
+.shadow-1 {
+  box-shadow: 0 4px 9px rgba(0,0,0, .4);
 }

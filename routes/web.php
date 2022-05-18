@@ -4,6 +4,7 @@ use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ProjectController;
 use App\Mail\ContactUs;
+use App\Models\ContactForm;
 use App\Models\Inventory;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -61,17 +62,32 @@ Route::prefix('dashboard')->middleware(['auth:sanctum', 'verified'])->group(func
 
   // Main dashboard page
   route::get('/', function () {
-    return view('dashboard');
-  });
+
+    $contact = ContactForm::all()->count();
+    $parts = Inventory::all();
+
+    return view('dashboard', ['contact' => $contact, 'parts' => $parts]);
+  })->name('dashboard');
+  
+  // Change Password
+  Route::get("/change-password", function(){
+    return view("auth.confirm-password");
+  })->name("change.password");
 
   Route::resource('/heavy-duty-projects', ProjectController::class)->except('index');
 
   // Parts resource
   Route::resource('/parts', InventoryController::class)->except('index');
+
   //Delete Image Route
   Route::get("/parts/{id}/img", [InventoryController::class, 'deleteImg'])->name("parts.imgdel");
 
-  Route::get("/parts-list", [InventoryController::class, 'viewInventory']);
+  // Parts List route
+  Route::get("/parts-list", [InventoryController::class, 'viewInventory'])->name('parts.list');
+
+  // ContactForm List route
+  Route::get('/contact-requests', [ContactFormController::class, 'index'])->name("contact.index");
+  Route::delete('/contact-requests/delete/{id}', [ContactFormController::class, 'destroy'])->name('contact.destroy');
 });
 
 Route::get('/logout', function () {

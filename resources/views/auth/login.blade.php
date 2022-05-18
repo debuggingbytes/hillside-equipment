@@ -20,12 +20,14 @@
   <main class="container vh-100 position-relative">
     {{-- Absolute center of page --}}
     <div class="abs-center">
+      {{-- Logo --}}
       <div class="row d-block">
         <div class="col-md-10 mx-auto">
           <img src="{{ asset('images/logo/hillside-full-transparent.png') }}" class="img-fluid w-100 mb-5">
           <hr class="hr-line w-100">
         </div>
       </div>
+      {{-- Login Form --}}
       <div class="row d-block">
         <div class="col-md-10 mx-auto">
           {!! Form::open(['route' => 'login', 'method' => 'post']) !!}
@@ -47,7 +49,7 @@
           {!! Form::close() !!}
         </div>
       </div>
-    </div>
+    </div> {{-- ABS CENTER --}}
   </main>
 
   

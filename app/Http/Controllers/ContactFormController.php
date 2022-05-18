@@ -10,6 +10,13 @@ use Illuminate\Support\Facades\Mail;
 class ContactFormController extends Controller
 {
 
+    public function index(){
+
+      $contacts = ContactForm::all();
+
+      return view('contact.index', ['contacts' => $contacts]);
+    }
+
     public function store(Request $request)
     {
       // Validate contact form request, before submitting to database and sending mail.
@@ -55,8 +62,10 @@ class ContactFormController extends Controller
      * @param  \App\Models\ContactForm  $contactForm
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ContactForm $contactForm)
+    public function destroy(ContactForm $contactForm, $id)
     {
         //
+        $contactForm->findOrFail($id)->delete();
+        return back()->withMessage("Successfully removed contact request");
     }
 }
