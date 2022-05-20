@@ -12,6 +12,13 @@
   <main>
     <section>
       <div class="container">
+        [ 
+            <a href="{{ route('dashboard') }}" class="text-secondary text-decoration-none">Dashboard</a> >
+            <a href="{{ route('parts.list') }}" class="text-secondary text-decoration-none">Part</a> >
+            <a href="{{ route('parts.edit', ['part' => $data->id]) }}" class="text-secondary text-decoration-none">Edit</a> >
+            [{{ $data->manufacture }} > {{$data->part_number}}]
+          
+          ]
         <div class="row my-5 card py-3">
          
           <div class="col-auto">

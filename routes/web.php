@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\ContactFormController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ProjectController;
 use App\Mail\ContactUs;
 use App\Models\ContactForm;
 use App\Models\Inventory;
+use App\Models\Project;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
@@ -65,8 +67,9 @@ Route::prefix('dashboard')->middleware(['auth:sanctum', 'verified'])->group(func
 
     $contact = ContactForm::all()->count();
     $parts = Inventory::all();
+    $projects = Project::all();
 
-    return view('dashboard', ['contact' => $contact, 'parts' => $parts]);
+    return view('dashboard', ['contact' => $contact, 'parts' => $parts, 'projects' => $projects]);
   })->name('dashboard');
   
   // Change Password
@@ -79,8 +82,9 @@ Route::prefix('dashboard')->middleware(['auth:sanctum', 'verified'])->group(func
   // Parts resource
   Route::resource('/parts', InventoryController::class)->except('index');
 
-  //Delete Image Route
-  Route::get("/parts/{id}/img", [InventoryController::class, 'deleteImg'])->name("parts.imgdel");
+  //Delete Image(s) Route
+  Route::get("/parts/{id}/img", [InventoryController::class, 'deleteImg'])->name("parts.imgdel"); // Inventory Image
+  Route::delete('/projects/{id}/img', [ImageController::class, 'destroy'])->name("projectImg.destroy"); // Delete project image
 
   // Parts List route
   Route::get("/parts-list", [InventoryController::class, 'viewInventory'])->name('parts.list');
@@ -88,6 +92,9 @@ Route::prefix('dashboard')->middleware(['auth:sanctum', 'verified'])->group(func
   // ContactForm List route
   Route::get('/contact-requests', [ContactFormController::class, 'index'])->name("contact.index");
   Route::delete('/contact-requests/delete/{id}', [ContactFormController::class, 'destroy'])->name('contact.destroy');
+
+  // Projects
+  Route::get("/heavy-duty-projects",[ProjectController::class, 'list'])->name("projects.list");
 });
 
 Route::get('/logout', function () {

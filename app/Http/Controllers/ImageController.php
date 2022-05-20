@@ -35,7 +35,7 @@ class ImageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
     }
 
     /**
@@ -78,8 +78,14 @@ class ImageController extends Controller
      * @param  \App\Models\Image  $image
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Image $image)
+    public function destroy(Image $image, $id)
     {
-        //
+        // Single Delete
+        $image = $image->findOrFail($id);
+        // dd($image);
+        unlink(public_path($image->img_path));
+        $image->delete();
+        return back()->withMessage("Image was deleted");
+        // dd($id);
     }
 }

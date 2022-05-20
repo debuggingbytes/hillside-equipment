@@ -168,7 +168,7 @@
       transform: translateY(-40%);
       opacity: 0.3; }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 998px) {
   .service-card__side--text--heading {
     font-size: 1.7rem;
     letter-spacing: normal; }
@@ -178,12 +178,13 @@
   .heading__text, .heading__large {
     font-size: 1.7rem; } }
 
-@media only screen and (max-width: 998px) {
+@media only screen and (max-width: 600px) {
   .service-card__side--text--heading {
     font-size: 1.7rem;
     letter-spacing: normal; }
   .service-card__side--text p {
-    padding-top: 0.8rem;
+    padding-top: 5px;
+    line-height: normal;
     font-size: 1rem; }
   .heading__text, .heading__large {
     font-size: 1.7rem; } }

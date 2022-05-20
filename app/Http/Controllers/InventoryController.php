@@ -43,7 +43,7 @@ class InventoryController extends Controller
       
          $edit = Auth::user() ?
             "<div class=\"part__edit\">
-              <a href=" . url("/parts/$part->id/edit/#part") ." class=\"btn btn-warning\">EDIT</a>
+              <a href=" . url("/dashboard/parts/$part->id/edit/#part") ." class=\"btn btn-warning\">EDIT</a>
             </div>" : "";
           
           // BIG PILE O SPAGHETTI
@@ -230,7 +230,7 @@ class InventoryController extends Controller
   {
     //
     $inventory->findOrFail($id)->delete();
-    return redirect()->route('parts.create')->withMessage("Part was successfully removed from system.");
+    return redirect()->route('parts.list')->withMessage("Part was successfully removed from system.");
   }
 
   public function viewInventory(Inventory $inventory)

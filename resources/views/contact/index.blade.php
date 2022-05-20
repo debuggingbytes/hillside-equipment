@@ -24,9 +24,16 @@
         </div>
       @endif
       <div class="row mt-3 p-2">
-        @foreach ($contacts as $contact)
-          <x-contact-card  :contact="$contact" />
-        @endforeach  
+        @if ($contacts->isNotEmpty())
+          @foreach ($contacts as $contact)
+            <x-contact-card  :contact="$contact" />
+          @endforeach
+        @else
+          <div class="col-md-6 mx-auto alert alert-danger">
+            <h3 class='text-center'><i class="fas fa-exclamation me-5 fs-1"></i>There are currently no contact requests in the database.</h3>
+          </div>
+        @endif
+          
       </div>
     </div>
   @endsection

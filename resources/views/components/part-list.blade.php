@@ -12,7 +12,9 @@
    {{ $item->briefDescription}}...
   </div>
   <div class="col-md-2">
-    <a href='' class="btn btn-danger mx-1">DELETE</a>
-    <a href='' class="btn btn-warning mx-1">EDIT</a>
+    {!! Form::open(['route' => ['parts.destroy', 'part' => $item->id], 'class' => 'd-inline-block', 'method' => 'delete']) !!}
+    <button class="btn btn-danger mx-1"><i class="fas fa-trash me-2"></i> DELETE</button>
+    {!! Form::close() !!}
+    <a href='{{ route('parts.edit', ['part' => $item->id]) }}' class="btn btn-warning mx-1">EDIT</a>
   </div>
 </div>

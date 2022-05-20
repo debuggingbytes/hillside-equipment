@@ -6,7 +6,7 @@
               <div class="col-md  position-relative">
                 @if(Auth::user())
                   <div class="part__edit">
-                    <a href="{{ url("/parts/$part->id/edit/#part") }}" class="btn btn-warning">EDIT</a>
+                    <a href="{{ url("/dashboard/parts/$part->id/edit/#part") }}" class="btn btn-warning">EDIT</a>
                   </div>
                 @endif
                 <div class="position-absolute text-end" style="top:0; right: 0;">

@@ -306,29 +306,7 @@ $screen-p-md: 1rem;
     }
 }
 
-@media only screen and (max-width: 600px) {
-    .service-card {
-        &__side {
-            &--text {
-                &--heading {
-                    font-size: $screen-heading-sm;
-                    letter-spacing: normal;
-                }
 
-                & p {
-                    padding-top: 0.8rem;
-                    font-size: $screen-p-sm;
-                }
-            }
-        }
-    }
-    .heading {
-        &__text,
-        &__large {
-            font-size: $screen-heading-sm;
-        }
-    }
-}
 @media only screen and (max-width: 998px) {
     .service-card {
         &__side {
@@ -351,4 +329,29 @@ $screen-p-md: 1rem;
             font-size: $screen-heading-md;
         }
     }
+}
+
+@media only screen and (max-width: 600px) {
+  .service-card {
+      &__side {
+          &--text {
+              &--heading {
+                  font-size: $screen-heading-sm;
+                  letter-spacing: normal;
+              }
+
+              & p {
+                  padding-top: 5px;
+                  line-height: normal;
+                  font-size: $screen-p-sm;
+              }
+          }
+      }
+  }
+  .heading {
+      &__text,
+      &__large {
+          font-size: $screen-heading-sm;
+      }
+  }
 }

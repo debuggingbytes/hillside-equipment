@@ -71,11 +71,16 @@
               </li> --}}
               {{-- <li class="nav-item">
                 <a href="/gallery" class="nav-link text-uppercase me-3">Gallery</a>
-              </li> --}}
+              </li> --}}           
 
               <li class="nav-item">
                 <a href="/contact-us" class="nav-link text-uppercase me-3">Contact Us</a>
               </li>
+              @if (Auth::user())
+              <li class="nav-item">
+                <a href="/dashboard" class="btn btn-success text-uppercase me-3">Dashboard</a>
+              </li>
+              @endif
             </ul>
           </div>
           <!-- End Navigation -->

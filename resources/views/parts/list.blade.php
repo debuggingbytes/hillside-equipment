@@ -16,7 +16,20 @@
         ]
       </div>
     </div>
+    
     <div class="row py-5 card vh-50">
+      @if(Session::has('message'))
+      <div class="row my-3">
+        <div class="col-md-6 mx-auto alert alert-success">
+          <h4>{{ Session::get('message') }}</h4>
+        </div>
+      </div>
+      @endif
+      <div class="row">
+        <div class="col-md-2 ms-auto">
+          <a href='{{ route('parts.create') }}' class="btn btn-info"><i class="fas fa-plus me-2"></i> Add Part</a>
+        </div>
+      </div>
       <div class="col-md mx-auto">
         <div class="row p-1 mx-1 border-secondary border-2 border-bottom">
           <div class="col-md-1">
